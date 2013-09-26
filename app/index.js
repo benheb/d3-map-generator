@@ -10,8 +10,7 @@ var AppGenerator = module.exports = function Appgenerator(args, options, config)
 
   // setup the test-framework property, Gruntfile template will need this
   this.testFramework = options['test-framework'] || 'mocha';
-  this.coffee = options.coffee;
-
+  
   // for hooks to resolve on mocha by default
   if (!options['test-framework']) {
     options['test-framework'] = 'mocha';
@@ -19,8 +18,6 @@ var AppGenerator = module.exports = function Appgenerator(args, options, config)
 
   // resolved to mocha by default (could be switched to jasmine for instance)
   this.hookFor('test-framework', { as: 'app' });
-
-  this.mainCoffeeFile = 'console.log "\'Allo from CoffeeScript!"';
 
   this.on('end', function () {
     this.installDependencies({
@@ -33,6 +30,8 @@ var AppGenerator = module.exports = function Appgenerator(args, options, config)
 };
 
 util.inherits(AppGenerator, yeoman.generators.Base);
+
+util.inherits(AppGenerator, yeoman.generators.NamedBase);
 
 AppGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
@@ -127,16 +126,6 @@ AppGenerator.prototype.writeIndex = function writeIndex() {
     this.indexFile = this.appendScripts(this.indexFile, 'scripts/main.js', [
       'scripts/main.js'
     ]);
-
-    if (this.coffee) {
-      this.indexFile = this.appendFiles({
-        html: this.indexFile,
-        fileType: 'js',
-        optimizedPath: 'scripts/coffee.js',
-        sourceFileList: ['scripts/hello.js'],
-        searchPath: '.tmp'
-      });
-    }
   }
 
   if (this.compassBootstrap && !this.includeRequireJS) {
@@ -168,16 +157,10 @@ AppGenerator.prototype.requirejs = function requirejs() {
     'data-main': 'scripts/main'
   });
 
-  // add a basic amd module
-  this.write('app/scripts/app.js', [
-    '/*global define */',
-    'define([], function () {',
-    '    \'use strict\';\n',
-    '    return \'\\\'Allo \\\'Allo!\';',
-    '});'
-  ].join('\n'));
-
+  this.template('app.js', 'app/scripts/app.js');
   this.template('require_main.js', 'app/scripts/main.js');
+
+  this.copy('world-110m.json', 'app/data/world-110m.json');
 };
 
 AppGenerator.prototype.app = function app() {
@@ -186,10 +169,6 @@ AppGenerator.prototype.app = function app() {
   this.mkdir('app/styles');
   this.mkdir('app/images');
   this.write('app/index.html', this.indexFile);
-
-  if (this.coffee) {
-    this.write('app/scripts/hello.coffee', this.mainCoffeeFile);
-  }
 
   if (!this.includeRequireJS) {
     this.write('app/scripts/main.js', 'console.log(\'\\\'Allo \\\'Allo!\');');

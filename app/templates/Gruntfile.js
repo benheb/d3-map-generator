@@ -19,15 +19,7 @@ module.exports = function (grunt) {
             app: 'app',
             dist: 'dist'
         },
-        watch: {<% if (coffee) { %>
-            coffee: {
-                files: ['<%%= yeoman.app %>/scripts/{,*/}*.coffee'],
-                tasks: ['coffee:dist']
-            },
-            coffeeTest: {
-                files: ['test/spec/{,*/}*.coffee'],
-                tasks: ['coffee:test']
-            },<% } %>
+        watch: {
             compass: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
@@ -117,26 +109,6 @@ module.exports = function (grunt) {
                 options: {
                     specs: 'test/spec/{,*/}*.js'
                 }
-            }
-        },<% } %><% if (coffee) { %>
-        coffee: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%%= yeoman.app %>/scripts',
-                    src: '{,*/}*.coffee',
-                    dest: '.tmp/scripts',
-                    ext: '.js'
-                }]
-            },
-            test: {
-                files: [{
-                    expand: true,
-                    cwd: 'test/spec',
-                    src: '{,*/}*.coffee',
-                    dest: '.tmp/spec',
-                    ext: '.js'
-                }]
             }
         },<% } %>
         compass: {
@@ -333,16 +305,13 @@ module.exports = function (grunt) {
         },<% } %>
         concurrent: {
             server: [
-                'compass',<% if (coffee) { %>
-                'coffee:dist',<% } %>
+                'compass',
                 'copy:styles'
             ],
-            test: [<% if (coffee) { %>
-                'coffee',<% } %>
+            test: [
                 'copy:styles'
             ],
-            dist: [<% if (coffee) { %>
-                'coffee',<% } %>
+            dist: [
                 'compass',
                 'copy:styles',
                 'imagemin',

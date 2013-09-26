@@ -89,3 +89,35 @@ body {
         border-bottom: 0;
     }
 }
+
+#world-map {
+  width:100%;
+  height:100%;
+}
+
+.stroke {
+  fill: none;
+  stroke: #34495e;
+  stroke-width: 3px;
+}
+
+.fill {
+  fill: #202020;
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+
+.land {
+  fill: #FEFEFE;
+}
+
+.boundary {
+  fill: none;
+  stroke: #999;
+  stroke-width: .5px;
+}
