@@ -5,11 +5,11 @@ if (!this.App || typeof this.App !== 'object') {
 (function () {
   'use strict';
 
-  var width = 700,
-      height = 600
+  var width = $('#states-map').width(),
+      height = $('#states-map').height()
 
   var projection = d3.geo.albersUsa()
-    .scale(500)
+    .scale(900)
     .translate([width / 2, height / 2]);
 
   var path = d3.geo.path()

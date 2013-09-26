@@ -5,11 +5,11 @@ if (!this.App || typeof this.App !== 'object') {
 (function () {
   'use strict';
 
-  var width = 700,
-      height = 600
+  var width = $('#world-map').width(),
+      height = $('#world-map').height()
 
   var projection = d3.geo.mercator()
-    .scale(500)
+    .scale(900)
     .translate([width / 2, height / 2])
     .precision(.1);
 
