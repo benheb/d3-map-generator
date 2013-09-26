@@ -2,17 +2,16 @@
 - Extending generator-webapp to create pre-baked d3 maps
 
 ## Getting Started
-### World Map
+
 - Install: `npm install -g generator-webapp`
-  
--- Link: `npm link`
--- From new dir
--- Run: `yo d3-geo`
--- Run `grunt` for building and `grunt server` for preview
+- Link: `npm link`
+- Create new directory to house project
 
-### - OR - 
+### World Map Generator
+- Run: `yo d3-geo`
+- Run `grunt` for building and `grunt server` for preview
 
-- Just states: 
+### United States Generator
 - Run: yo d3-geo:d3-states "states"
 - Run `grunt` for building and `grunt server` for preview
 
