@@ -1,17 +1,19 @@
 ## A D3.js Map Application Generator
-- Extending generator-webapp to create prebaked d3 maps
+- Extending generator-webapp to create pre-baked d3 maps
 
 ## Getting Started
-
+### World Map
 - Install: `npm install -g generator-webapp`
-  - Link: `npm link`
-  - From new dir
-- Run: `yo d3-geo`
-- Run `grunt` for building and `grunt server` for preview
+  
+-- Link: `npm link`
+-- From new dir
+-- Run: `yo d3-geo`
+-- Run `grunt` for building and `grunt server` for preview
 
-# Options
+### - OR - 
+
 - Just states: 
-- Run: yo d3-geo:d3-states "<Map Name>"
+- Run: yo d3-geo:d3-states "states"
 - Run `grunt` for building and `grunt server` for preview
 
 ## License

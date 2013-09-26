@@ -160,7 +160,7 @@ AppGenerator.prototype.requirejs = function requirejs() {
   this.template('app.js', 'app/scripts/app.js');
   this.template('require_main.js', 'app/scripts/main.js');
 
-  this.copy('world-110m.json', 'app/data/world-110m.json');
+  this.copy('us.json', 'app/data/world-110m.json');
 };
 
 AppGenerator.prototype.app = function app() {
