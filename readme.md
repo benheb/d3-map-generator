@@ -12,10 +12,10 @@
 - Run `grunt` for building and `grunt server` for preview
 
 ### United States Generator
-- Run: yo d3-geo:d3-states "states"
+- Run: yo d3-geo:d3-states 
 - Run `grunt` for building and `grunt server` for preview
 
-### Configuration List
+### Configuration Options
 When generating a new map, the d3-geo generator will give a number of default options: 
 - Map name
 
