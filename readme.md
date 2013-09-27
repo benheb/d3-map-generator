@@ -18,7 +18,7 @@
 ### Configuration List
 When generating a new map, the d3-geo generator will give a number of default options: 
 - Map name
-In progress...
+#### In progress...
 - Projection
 - Scale
 
