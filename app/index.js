@@ -59,9 +59,14 @@ AppGenerator.prototype.askFor = function askFor() {
       value: 'includeModernizr',
       checked: true
     }]
-  }];
+  }, {
+    name: "title",
+    message: "What would you like to title this map?"
+  }
+  ];
 
   this.prompt(prompts, function (answers) {
+
     var features = answers.features;
 
     function hasFeature(feat) { return features.indexOf(feat) !== -1; }
@@ -71,6 +76,8 @@ AppGenerator.prototype.askFor = function askFor() {
     this.compassBootstrap = hasFeature('compassBootstrap');
     this.includeRequireJS = hasFeature('includeRequireJS');
     this.includeModernizr = hasFeature('includeModernizr');
+    this.mapTitle = null;
+    if ( answers.title ) this.mapTitle = answers.title;
 
     cb();
   }.bind(this));

@@ -15,6 +15,13 @@
 - Run: yo d3-geo:d3-states "states"
 - Run `grunt` for building and `grunt server` for preview
 
+### Configuration List
+When generating a new map, the d3-geo generator will give a number of default options: 
+- Map name
+In progress...
+- Projection
+- Scale
+
 ## License
 
 [BSD license](http://opensource.org/licenses/bsd-license.php)
